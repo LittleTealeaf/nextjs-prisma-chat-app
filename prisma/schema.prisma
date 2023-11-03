@@ -8,13 +8,13 @@ datasource db {
 }
 
 model User {
-  id         Int          @id @default(autoincrement())
-  username   String       @unique
+  id         Int           @id @default(autoincrement())
+  username   String        @unique
   password   String
-  Connection Connection[]
+  Connection Participant[]
 }
 
-model Connection {
+model Participant {
   id     Int  @id @default(autoincrement())
   userId Int
   user   User @relation(fields: [userId], references: [id])
@@ -23,8 +23,8 @@ model Connection {
 }
 
 model Room {
-  id         Int          @id @default(autoincrement())
+  id         Int           @id @default(autoincrement())
   name       String
   password   String
-  Connection Connection[]
+  Connection Participant[]
 }
