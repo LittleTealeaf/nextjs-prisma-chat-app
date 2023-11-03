@@ -12,3 +12,15 @@ model User {
   username String @unique
   password String
 }
+
+model Connection {
+  id     Int @id @default(autoincrement())
+  userId Int
+  roomId Int
+}
+
+model Room {
+  id       Int    @id @default(autoincrement())
+  name     String
+  password String
+}
